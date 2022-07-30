@@ -3,11 +3,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MyWalletTracker.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<WalletHolder>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
+
+        public DbSet<ExpenseType> ExpenseTypes { get; set; }
+        public DbSet<WalletDetails> WalletDetails { get; set; }
+
     }
 }
